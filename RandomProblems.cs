@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace exercise
 {
-    public partial class RandomPeoblems : Form
+    public partial class RandomProblems : Form
     {
         MySqlHelper mysql = new MySqlHelper();
 
-        public RandomPeoblems()
+        public RandomProblems()
         {
             InitializeComponent();
         }

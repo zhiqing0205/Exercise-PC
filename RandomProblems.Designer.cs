@@ -1,6 +1,6 @@
 ﻿namespace exercise
 {
-    partial class RandomPeoblems
+    partial class RandomProblems
     {
         /// <summary>
         /// Required designer variable.
