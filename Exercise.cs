@@ -284,7 +284,7 @@ namespace exercise
             if (flag)
             {
                 sql.AppendFormat("where problem.id NOT IN " +
-                    "(SELECT problem_id FROM solve WHERE user_id = {0}) ", uid);
+                    "(SELECT DISTINCT(problem_id) FROM solve WHERE user_id = {0}) ", uid);
             }
 
             //MessageBox.Show("" + sql.ToString());

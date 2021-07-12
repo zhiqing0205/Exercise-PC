@@ -39,16 +39,16 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.Blue;
-            this.label6.Location = new System.Drawing.Point(125, 212);
+            this.label6.Location = new System.Drawing.Point(113, 188);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(272, 16);
+            this.label6.Size = new System.Drawing.Size(336, 16);
             this.label6.TabIndex = 12;
-            this.label6.Text = "tip：此模式会将题库的题目随机打乱";
+            this.label6.Text = "tip：此模式会根据需求将题库的题目随机打乱";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(103, 119);
+            this.button1.Location = new System.Drawing.Point(132, 105);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(84, 38);
             this.button1.TabIndex = 13;
@@ -59,7 +59,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(327, 119);
+            this.button2.Location = new System.Drawing.Point(343, 105);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(80, 38);
             this.button2.TabIndex = 14;
@@ -71,23 +71,25 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(179, 55);
+            this.label5.Location = new System.Drawing.Point(203, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 20);
             this.label5.TabIndex = 15;
             this.label5.Text = "是否只刷新题？";
             // 
-            // Random
+            // RandomProblems
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 292);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(568, 260);
+            this.ControlBox = false;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label6);
-            this.Name = "Random";
+            this.Name = "RandomProblems";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "随机刷题";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

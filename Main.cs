@@ -156,8 +156,6 @@ namespace exercise
                 Height = randomProblems.Height + 28;
                 Width = randomProblems.Width;
 
-
-
                 randomProblems.Show();
             }
 

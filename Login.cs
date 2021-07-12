@@ -54,6 +54,7 @@ namespace exercise
                     {
                         MessageBox.Show("密码错误！", "登录提示",
                             MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        textBox2.Text = "";
                     }
                     else
                     {
@@ -133,7 +134,7 @@ namespace exercise
                             mysql.insertOrDeleteOrupdate(sql);
 
                             MessageBox.Show(Login.userName + "你好！\n欢迎开始你的第" + Convert.ToString(count) 
-                                + "天刷题！\n现在支持键盘选择选项和切题哟~\n现在有超过50道错题是不能做新题哟~", "登录提示");
+                                + "天刷题！\n现支持键盘选择选项和切题哟~\n现有超过50道错题是不能做新题哟~", "登录提示");
 
                             Main main = new Main();
 
@@ -147,7 +148,6 @@ namespace exercise
                 MySqlHelper.conn.Close();
             }
         }
-
 
         private void label4_Click(object sender, EventArgs e)
         {
@@ -163,9 +163,9 @@ namespace exercise
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //textBox1.text = "0184418";
-            //textbox2.text = "ch0604.2020";
-            //button1_click(sender, e);
+            textBox1.Text = "0184418";
+            textBox2.Text = "ch0604.2020";
+            button1_Click(sender, e);
         }
     }
 }

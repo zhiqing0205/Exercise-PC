@@ -27,7 +27,7 @@ namespace exercise
             StringBuilder sql = new StringBuilder();
 
             sql.AppendFormat("SELECT count(*) FROM problem " +
-                "where problem.id NOT IN (SELECT problem_id FROM solve WHERE user_id = {0})", Login.userId);
+                "where problem.id NOT IN (SELECT DISTINCT(problem_id) FROM solve WHERE user_id = {0})", Login.userId);
 
             MySqlDataReader reader = mysql.selectDataForRead(sql);
             reader.Read();
@@ -39,8 +39,8 @@ namespace exercise
                 return;
             }
 
-
-            exercise = new Exercise(this, Login.userId, true);
+            this.MdiParent.Hide();
+            exercise = new Exercise(this.MdiParent, Login.userId, true);
             exercise.ShowDialog();
         }
 

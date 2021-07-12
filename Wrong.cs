@@ -27,7 +27,7 @@ namespace exercise
         {
             StringBuilder sql = new StringBuilder();
             
-            sql.AppendFormat("SELECT count(*) FROM `user`,solve " +
+            sql.AppendFormat("SELECT count(DISTINCT(problem_id)) FROM `user`,solve " +
                     "WHERE `user`.id = solve.user_id " +
                     "AND `user`.id = {0} " +
                     "AND solve.state < 0 " , Login.userId);

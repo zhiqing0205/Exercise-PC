@@ -22,6 +22,7 @@ namespace exercise
         public Rank()
         {
             InitializeComponent();
+            //MessageBox.Show("你排在第" + Convert.ToString(rank) + "名！", "排名提示");
         }
 
         private void Rank_Load(object sender, EventArgs e)
@@ -29,13 +30,13 @@ namespace exercise
              StringBuilder sql = new StringBuilder();
 
             sql.AppendFormat("SELECT u.id,NAME," +
-                "(SELECT name FROM class WHERE class.id = u.classid),count(*)," +
+                "(SELECT name FROM class WHERE class.id = u.classid),count(*) as cnt," +
                 "(SELECT ifnull(max(score), 0) FROM simulatelog WHERE user_id = u.id),days,last_time " +
                 "FROM `user` as u,loginlog,solve " +
                 "WHERE loginlog.user_id = u.id AND loginlog.user_id = solve.user_id " +
                 "GROUP BY u.id " +
-                "HAVING count(*) != 0 " +
-                "ORDER BY count(*) DESC, last_time DESC ");
+                "HAVING cnt != 0 " +
+                "ORDER BY cnt DESC, last_time DESC ");
 
             //清空数据
             dataGridView1.Columns.Clear();
@@ -60,7 +61,9 @@ namespace exercise
                 {
                     //MessageBox.Show("你排在第" + Convert.ToString(i + 1) + "名！");
                     rank = i + 1;
-                    //dataGridView1.Rows[i].Cells[1].Style.Font = new Font("宋体", 10, FontStyle.Underline);
+                    //this.dataGridView1.BindingContext[this.dataGridView1.DataSource].Position = i;
+                    dataGridView1.Rows[i].Selected = true;
+                    //dataGridView1.Rows[i].Cells[1].Style.Font = new Font("宋体", 18, FontStyle.Underline);
                 }                
                 dataGridView1.Rows[i].Cells[0].Value = Convert.ToString(i + 1);
             }
@@ -83,7 +86,7 @@ namespace exercise
             dataGridView1.Columns[6].Width = 200;
 
             MessageBox.Show("你排在第" + Convert.ToString(rank) + "名！", "排名提示");
+            //dataGridView1.Rows[rank - 1].Selected = true;
         }
-
     }
 }

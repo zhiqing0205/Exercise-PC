@@ -30,7 +30,7 @@ namespace exercise
             StringBuilder sql = new StringBuilder();
 
             sql.AppendFormat("select id,content, " +
-                "(SELECT count(*) FROM type, solve, problem WHERE type.id = a.id and problem.type = a.id " +
+                "(SELECT count(DISTINCT(problem.id)) FROM type, solve, problem WHERE type.id = a.id and problem.type = a.id " +
                 "AND solve.problem_id = problem.id AND solve.user_id = {0}),count from type as a", Login.userId);
 
             //清空数据
@@ -111,7 +111,7 @@ namespace exercise
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4 && e.RowIndex != -1 && e.RowIndex != dataGridView1.Rows.Count)
+            if (e.ColumnIndex == 0 && e.RowIndex != -1 && e.RowIndex != dataGridView1.Rows.Count)
             {
                 if (dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() != "0")
                 {
