@@ -64,5 +64,22 @@ namespace exercise
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("确认要清空做题记录(模拟记录和登录记录会保留)？", "清空提示",
+               MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                StringBuilder sql = new StringBuilder();
+
+                sql.AppendFormat("DELETE FROM solve WHERE user_id = {0}", Login.userId);
+                MySqlHelper.insertOrDeleteOrupdate(sql);
+
+                MessageBox.Show("清空成功!");
+                Wrong_Load(sender, e);
+            }
+        }
     }
 }

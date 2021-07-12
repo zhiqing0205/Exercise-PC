@@ -85,7 +85,14 @@ namespace exercise
             dataGridView1.Columns[5].Width = 120;
             dataGridView1.Columns[6].Width = 200;
 
-            MessageBox.Show("你排在第" + Convert.ToString(rank) + "名！", "排名提示");
+            if(rank != 0)
+            {
+                MessageBox.Show("你排在第" + Convert.ToString(rank) + "名！", "排名提示");
+            }
+            else
+            {
+                MessageBox.Show("你还没有做题记录，快去刷题吧！", "排名提示");
+            }
             //dataGridView1.Rows[rank - 1].Selected = true;
         }
     }
