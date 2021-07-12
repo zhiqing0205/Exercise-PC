@@ -163,9 +163,9 @@ namespace exercise
 
         private void Login_Load(object sender, EventArgs e)
         {
-            textBox1.Text = "0184418";
-            textBox2.Text = "ch0604.2020";
-            button1_Click(sender, e);
+            //textBox1.Text = "0184418";
+            //textBox2.Text = "ch0604.2020";
+            //button1_Click(sender, e);
         }
     }
 }
