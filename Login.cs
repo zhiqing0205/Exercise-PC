@@ -134,7 +134,7 @@ namespace exercise
                             mysql.insertOrDeleteOrupdate(sql);
 
                             MessageBox.Show(Login.userName + "你好！\n欢迎开始你的第" + Convert.ToString(count) 
-                                + "天刷题！\n现支持键盘选择选项和切题哟~\n现有超过50道错题是不能做新题哟~", "登录提示");
+                                + "天刷题！\n现支持键盘选择选项和切题哟~\n现有超过50道错题是不能继续刷题哟~", "登录提示");
 
                             Main main = new Main();
 

@@ -20,6 +20,22 @@ namespace exercise
             InitializeComponent();
         }
 
+        bool judge()
+        {
+            StringBuilder sql = new StringBuilder();
+
+            sql.AppendFormat("SELECT count(*) FROM `user`,solve " +
+                    "WHERE `user`.id = solve.user_id " +
+                    "AND `user`.id = {0} " +
+                    "AND solve.state < 0 ", Login.userId);
+
+            MySqlDataReader reader = mysql.selectDataForRead(sql);
+            reader.Read();
+            int count = reader.GetInt32(0);
+
+            return count <= 50;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Exercise exercise = null;
@@ -39,6 +55,12 @@ namespace exercise
                 return;
             }
 
+            if (!judge())
+            {
+                MessageBox.Show("你的错题数量超过50题，请先强化错题！", "刷题提示");
+                return;
+            }
+
             this.MdiParent.Hide();
             exercise = new Exercise(this.MdiParent, Login.userId, true);
             exercise.ShowDialog();
@@ -46,6 +68,12 @@ namespace exercise
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (!judge())
+            {
+                MessageBox.Show("你的错题数量超过50题，请先强化错题！", "刷题提示");
+                return;
+            }
+
             Exercise exercise = new Exercise(this, Login.userId, false);
             exercise.ShowDialog();
         }
